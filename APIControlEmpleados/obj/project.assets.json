@@ -2240,11 +2240,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\Y3IK0\\source\\repos\\APIControlEmpleados\\APIControlEmpleados.csproj",
+      "projectUniqueName": "C:\\Users\\Y3IK0\\Documents\\GitHub\\APIControlEmpleados\\APIControlEmpleados\\APIControlEmpleados.csproj",
       "projectName": "APIControlEmpleados",
-      "projectPath": "E:\\Users\\Y3IK0\\source\\repos\\APIControlEmpleados\\APIControlEmpleados.csproj",
+      "projectPath": "C:\\Users\\Y3IK0\\Documents\\GitHub\\APIControlEmpleados\\APIControlEmpleados\\APIControlEmpleados.csproj",
       "packagesPath": "C:\\Users\\Y3IK0\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\Y3IK0\\source\\repos\\APIControlEmpleados\\obj\\",
+      "outputPath": "C:\\Users\\Y3IK0\\Documents\\GitHub\\APIControlEmpleados\\APIControlEmpleados\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Y3IK0\\AppData\\Roaming\\NuGet\\NuGet.Config",
