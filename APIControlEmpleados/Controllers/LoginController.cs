@@ -44,5 +44,44 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("BuscarCorreo")]
+        public IActionResult BuscarCorreo(string CorreoUsuario)
+        {
+            try
+            {
+                var resultado = _usuariosModel.BuscarCorreo(CorreoUsuario);
+
+                if (resultado == null)
+                    return NotFound();
+                else
+                {
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("RecuperarContrasenna")]
+        public IActionResult RecuperarContrasenna(Usuario entidad)
+        {
+            try
+            {
+                _usuariosModel.RecuperarContrasenna(entidad);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
+
     }
 }
