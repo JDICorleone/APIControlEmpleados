@@ -1,14 +1,15 @@
 ﻿using APIControlEmpleados.Interfaces;
+using APIControlEmpleados.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIControlEmpleados.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlanillaController : ControllerBase
+    public class PlanillasController : ControllerBase
     {
         private readonly IPlanillasModel _planillasModel;
-        public PlanillaController(IPlanillasModel planillasModel)
+        public PlanillasController(IPlanillasModel planillasModel)
         {
             _planillasModel = planillasModel;
         }

@@ -21,6 +21,7 @@ namespace APIControlEmpleados.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Empleado>().ToSqlQuery("EXEC ConsultarEmpleados");
+            modelBuilder.Entity<Planilla>().ToSqlQuery("EXEC ConsultarPlanillas");
         }
 
     }
