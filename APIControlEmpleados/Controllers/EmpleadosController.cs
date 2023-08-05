@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using APIControlEmpleados.Models;
 using APIControlEmpleados.Interfaces;
+using APIControlEmpleados.Entities;
 
 namespace APIControlEmpleados.Controllers
 {
@@ -33,6 +34,28 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+
+
+        [HttpPost]
+        [Route("AgregarEmpleado")]
+        public IActionResult AgregarEmpleado(Empleado entidad)
+        {
+            try
+            {
+                try
+                {
+                    return Ok(_empleadosModel.AgregarEmpleado(entidad));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }

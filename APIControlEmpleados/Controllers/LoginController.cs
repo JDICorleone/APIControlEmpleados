@@ -71,8 +71,14 @@ namespace APIControlEmpleados.Controllers
         {
             try
             {
-                _usuariosModel.RecuperarContrasenna(entidad);
-                return Ok();
+               int resultado = _usuariosModel.RecuperarContrasenna(entidad);
+
+                if (resultado != null) {
+
+                    return Ok(resultado);
+
+                }
+                return NotFound();
             }
             catch (Exception ex)
             {
