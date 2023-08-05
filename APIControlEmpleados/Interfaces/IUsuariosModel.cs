@@ -1,4 +1,5 @@
-﻿using APIControlEmpleados.Entities;
+﻿using APIControlEmpleados.Consults;
+using APIControlEmpleados.Entities;
 
 namespace APIControlEmpleados.Interfaces
 {
@@ -8,6 +9,9 @@ namespace APIControlEmpleados.Interfaces
         public Usuario? ValidarUsuario(Usuario entidad);
         public Usuario BuscarCorreo(string correoUsuario);
 
-        public void RecuperarContrasenna(Usuario entidad);
+        public List<ConsultarUsuarios> ConsultarUsuarios();
+        public int RecuperarContrasenna(Usuario entidad);
+
+        public int AgregarUsuario(Usuario entidad);
     }
 }

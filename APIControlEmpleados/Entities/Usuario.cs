@@ -16,5 +16,6 @@ namespace APIControlEmpleados.Entities
         [Display(Name = "Rol de Usuario")]
         public int ID_ROL { get; set; }
 
+
     }
 }

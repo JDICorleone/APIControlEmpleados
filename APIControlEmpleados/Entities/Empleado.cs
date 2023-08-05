@@ -23,27 +23,18 @@ namespace APIControlEmpleados.Entities
         [Display(Name = "Fecha de Ingreso")]
         public DateTime FECHA_DE_INGRESO { get; set; }
 
-        public string HORARIO { get; set; } = string.Empty;
-        public string PERIODO_DE_PAGO { get; set; } = string.Empty;
-        public string NOMBRE_PUESTO { get; set; } = string.Empty;
-        public string ESTADO { get; set; } = string.Empty;
-
-
-
-        [NotMapped]
         public int ID_HORARIO { get; set; }
-        [NotMapped]
         public int ID_PERIODO { get; set; }
-        [NotMapped]
-        public int ID_ROL { get; set; }
-        [NotMapped]
+ 
         public int ID_PUESTO { get; set; }
-        [NotMapped]
+
         public int ID_ESTADO { get; set; }
 
-            
-     
+        public int ID_USUARIO { get; set; }
 
-       
+
+
+
+
     }
 }
