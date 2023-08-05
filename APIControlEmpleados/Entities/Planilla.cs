@@ -13,12 +13,12 @@ namespace APIControlEmpleados.Entities
         [Display(Name = "ID Empleado")]
         public int HORAS_EXTRAS { get; set; }
         [Display(Name = "Horas Extras")]
-        public string? DEDUCCIONES { get; set; }
+        public string DEDUCCIONES { get; set; }
         [Display(Name = "Deducciones")]
         public int SALARIO_NETO { get; set; }
         [Display(Name = "Salario Neto")]
 
-        
+
         public string HORARIO { get; set; } = string.Empty;
         public string PERIODO_DE_PAGO { get; set; } = string.Empty;
         public string NOMBRE_PUESTO { get; set; } = string.Empty;

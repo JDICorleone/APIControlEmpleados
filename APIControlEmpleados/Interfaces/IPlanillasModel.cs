@@ -6,5 +6,4 @@ namespace APIControlEmpleados.Interfaces
     {
         public List<Planilla> ConsultarPlanillas();
     }
-
 }

@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIControlEmpleados.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PlanillaController : ControllerBase
+    public class PlanillaController : Controller
     {
         private readonly IPlanillasModel _planillasModel;
         public PlanillaController(IPlanillasModel planillasModel)
