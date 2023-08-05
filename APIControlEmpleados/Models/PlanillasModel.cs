@@ -21,7 +21,7 @@ namespace APIControlEmpleados.Models
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocurrió un error interno en el modelo Planillas: " + ex.Message);
+                throw new Exception("Ocurrió un error interno en el modelo Empleados: " + ex.Message);
             }
         }
     }
