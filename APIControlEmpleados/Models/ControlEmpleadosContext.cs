@@ -15,8 +15,6 @@ namespace APIControlEmpleados.Models
 
         public DbSet<Empleado> Empleado { get; set; }
 
-        public DbSet<Planilla> Planilla { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
