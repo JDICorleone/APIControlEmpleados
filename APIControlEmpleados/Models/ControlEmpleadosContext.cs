@@ -16,9 +16,8 @@ namespace APIControlEmpleados.Models
 
         public DbSet<Empleado> Empleado { get; set; }
 
-<<<<<<< HEAD
         public DbSet<Planilla> Planilla { get; set; }
-=======
+
         public DbSet<Rol> Rol { get; set; }
 
         public DbSet<Horarios> Horarios { get; set; }
@@ -31,15 +30,8 @@ namespace APIControlEmpleados.Models
 
 
         //Metodos ------------------------------------------------------------
-
-
->>>>>>> origin/main
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-          
 
 
         }
