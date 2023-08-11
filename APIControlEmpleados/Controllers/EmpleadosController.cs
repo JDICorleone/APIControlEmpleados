@@ -34,6 +34,25 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("ConsultarEmpleados2")]
+        public IActionResult ConsultarEmpleados2()
+        {
+            try
+            {
+                var resultado = _empleadosModel.ConsultarEmpleados2();
+
+                if (resultado.Count == 0)
+                    return NotFound();
+                else
+                    return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
         [HttpPost]
@@ -42,19 +61,52 @@ namespace APIControlEmpleados.Controllers
         {
             try
             {
-                try
+                var resultado = _empleadosModel.AgregarEmpleado(entidad);
+
+                if (resultado != 0)
                 {
-                    return Ok(_empleadosModel.AgregarEmpleado(entidad));
+
+                    return Ok(resultado);
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
+                else {
+                    return BadRequest();
                 }
+                
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+
+        }
+
+
+        [HttpPut]
+        [Route("EditarEmpleado")]
+        public IActionResult EditarEmpleado(Empleado entidad)
+        {
+            try
+            {
+                var resultado = _empleadosModel.EditarEmpleado(entidad);
+
+                if (resultado != 0)
+                {
+                    return Ok(resultado);
+
+                }
+                else
+                {
+                    return BadRequest();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
         }
 
     }
