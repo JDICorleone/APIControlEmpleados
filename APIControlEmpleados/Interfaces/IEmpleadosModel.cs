@@ -10,6 +10,10 @@ namespace APIControlEmpleados.Interfaces
 
         public int AgregarEmpleado(Empleado entidad);
 
+        public int EditarEmpleado(Empleado entidad);
+
+        public List<Empleado> ConsultarEmpleados2();
+
 
     }
 }
