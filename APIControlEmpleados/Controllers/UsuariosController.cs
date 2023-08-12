@@ -35,19 +35,43 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("ConsultarUsuarios2")]
+        public IActionResult ConsultarUsuarios2()
+        {
+            try
+            {
+                var resultado = _usuariosModel.ConsultarUsuarios2();
+
+                if (resultado.Count == 0)
+                    return NotFound();
+                else
+                    return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("AgregarUsuario")]
         public IActionResult AgregarUsuario(Usuario entidad)
         {
+
             try
             {
-                try
+                var resultado = _usuariosModel.AgregarUsuario(entidad);
+
+                if (resultado != 0)
                 {
-                    return Ok(_usuariosModel.AgregarUsuario(entidad));
+                    return Ok(resultado);
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    return BadRequest(ex.Message);
+                    return BadRequest();
+
                 }
             }
             catch (Exception ex)
@@ -56,6 +80,57 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+
+
+
+        [HttpPut]
+        [Route("EditarUsuario")]
+        public IActionResult EditarUsuario(Usuario entidad)
+        {
+            try
+            {
+                var resultado = _usuariosModel.EditarUsuario(entidad);
+
+                if (resultado != 0)
+                {
+                    return Ok(resultado);
+
+                }
+                else
+                {
+                    return BadRequest();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+
+
+
+        [HttpPost]
+        [Route("CorreoExiste")]
+        public IActionResult CorreoExiste(Usuario entidad)
+        {
+            try
+            {
+
+                var resultado = _usuariosModel.CorreoExiste(entidad);
+
+
+                return Ok(resultado);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }
