@@ -7,5 +7,7 @@ namespace APIControlEmpleados.Interfaces
         public List<Puestos>? ConsultarPuestos();
 
         public int AgregarPuesto(Puestos puestos);
+
+        public int EditarPuesto(Puestos puestos);
     }
 }

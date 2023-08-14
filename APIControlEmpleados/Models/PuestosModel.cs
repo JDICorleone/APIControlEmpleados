@@ -33,9 +33,29 @@ namespace APIControlEmpleados.Models
             }
             catch (DbUpdateException ex)
             {
-                Console.WriteLine("Ocurrió un error al agregar el usuario:");
+                Console.WriteLine("Ocurrió un error al agregar el puesto:");
                 Console.WriteLine(ex.ToString());
                 throw;
+            }
+        }
+
+        public int EditarPuesto(Puestos puestos) {
+            try
+            {
+                Puestos puestoExistente = _contexto.Puestos.Find(puestos.ID_PUESTO);
+                if (puestoExistente == null)
+                {
+                    return 0;
+                }
+                puestoExistente.NOMBRE_PUESTO = puestos.NOMBRE_PUESTO;
+
+                _contexto.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo de Puestos: " + ex.Message);
             }
         }
     }
