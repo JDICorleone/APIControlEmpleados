@@ -8,5 +8,8 @@
         public int HORAS_EXTRAS { get; set; }
         public string? DEDUCCIONES { get; set; }
         public int SALARIO_NETO { get; set; }
+
+        //Traido de Empleado
+        public string? NOMBRE { get; set; }
     }
 }
