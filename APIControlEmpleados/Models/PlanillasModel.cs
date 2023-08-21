@@ -25,6 +25,9 @@ namespace APIControlEmpleados.Models
                                    FECHA = p.FECHA,
                                    ID_EMPLEADO = e.ID_EMPLEADO,
                                    NOMBRE = e.NOMBRE,
+                                   PRIMER_APELLIDO = e.PRIMER_APELLIDO,
+                                   SEGUNDO_APELLIDO = e.SEGUNDO_APELLIDO,
+                                   PAGO_POR_HORA = e.PAGO_POR_HORA,
                                    HORAS_EXTRAS = p.HORAS_EXTRAS,
                                    DEDUCCIONES = p.DEDUCCIONES,
                                    SALARIO_NETO = p.SALARIO_NETO
