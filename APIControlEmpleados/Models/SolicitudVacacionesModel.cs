@@ -18,7 +18,7 @@ namespace APIControlEmpleados.Models
             {
                 var consulta =
                                from sv in _contexto.Solicitud_Vacaciones
-                               join em in _contexto.Empleado on sv.ID_SOLICITUD_VACACIONES equals em.ID_EMPLEADO
+                               join em in _contexto.Empleado on sv.ID_EMPLEADO equals em.ID_EMPLEADO
                                select new ConsultarSolicitudVacaciones
                                {
                                    ID_SOLICITUD_VACACIONES = sv.ID_SOLICITUD_VACACIONES,
@@ -43,5 +43,33 @@ namespace APIControlEmpleados.Models
 
             }
         }
+
+        public int AgregarSolicitud(Solicitud_Vacaciones entidad) {
+            try
+            {
+                Solicitud_Vacaciones nuevaSolicitud = new Solicitud_Vacaciones
+                {
+                    ASUNTO = entidad.ASUNTO,
+                    DESCRIPCION = entidad.DESCRIPCION,
+                    TIPO_VACACIONES = entidad.TIPO_VACACIONES,
+                    FECHA_INICIO = entidad.FECHA_INICIO,
+                    FECHA_FINAL = entidad.FECHA_FINAL,
+                    CANTIDAD_DIAS = entidad.CANTIDAD_DIAS,
+                    ESTADO = entidad.ESTADO,
+                    ID_EMPLEADO = entidad.ID_EMPLEADO,
+                };
+
+                _contexto.Solicitud_Vacaciones.Add(nuevaSolicitud);
+                _contexto.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo Solicitud de Vacaciones: " + ex.Message);
+
+            }
+        }
+
     }
 }

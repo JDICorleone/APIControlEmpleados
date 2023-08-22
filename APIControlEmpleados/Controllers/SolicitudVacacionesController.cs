@@ -1,4 +1,6 @@
-﻿using APIControlEmpleados.Interfaces;
+﻿using APIControlEmpleados.Entities;
+using APIControlEmpleados.Interfaces;
+using APIControlEmpleados.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIControlEmpleados.Controllers
@@ -30,6 +32,32 @@ namespace APIControlEmpleados.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("AgregarSolicitud")]
+        public IActionResult AgregarSolicitud(Solicitud_Vacaciones entidad)
+        {
+            try
+            {
+                var resultado = _solicitudVacacionesModel.AgregarSolicitud(entidad);
+
+                if (resultado != 0)
+                {
+
+                    return Ok(resultado);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
