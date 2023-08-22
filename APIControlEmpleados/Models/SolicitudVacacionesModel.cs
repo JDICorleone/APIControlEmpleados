@@ -71,5 +71,60 @@ namespace APIControlEmpleados.Models
             }
         }
 
+        public List<ConsultarSolicitudVacaciones>? ConsultarSolicitudesEmpleado(int id)
+        {
+
+            try
+            {
+                var consulta =
+                               from sv in _contexto.Solicitud_Vacaciones
+                               join em in _contexto.Empleado on sv.ID_EMPLEADO equals em.ID_EMPLEADO
+                               where sv.ID_EMPLEADO == id
+                               select new ConsultarSolicitudVacaciones
+                               {
+                                   ID_SOLICITUD_VACACIONES = sv.ID_SOLICITUD_VACACIONES,
+                                   ASUNTO = sv.ASUNTO,
+                                   DESCRIPCION = sv.DESCRIPCION,
+                                   TIPO_VACACIONES = sv.TIPO_VACACIONES,
+                                   FECHA_INICIO = sv.FECHA_INICIO,
+                                   FECHA_FINAL = sv.FECHA_FINAL,
+                                   ESTADO = sv.ESTADO,
+                                   NOMBRE = em.NOMBRE,
+                                   PRIMER_APELLIDO = em.PRIMER_APELLIDO,
+                                   SEGUNDO_APELLIDO = em.SEGUNDO_APELLIDO,
+                                   CEDULA = em.CEDULA,
+                                   VACACIONES_DISPONIBLES = em.VACACIONES_DISPONIBLES,
+                               };
+
+                return consulta.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo Solicitud de : " + ex.Message);
+
+            }
+        }
+
+        public int CambiarEstado(int id_solicitud, string estado)
+        {
+            try
+            {
+                Solicitud_Vacaciones solicitudExistente = _contexto.Solicitud_Vacaciones.Find(id_solicitud);
+                if (solicitudExistente == null)
+                {
+                    return 0;
+                }
+                solicitudExistente.ESTADO = estado;
+
+                _contexto.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo de Puestos: " + ex.Message);
+            }
+        }
+
     }
 }

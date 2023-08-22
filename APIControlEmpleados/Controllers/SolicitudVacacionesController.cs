@@ -59,5 +59,51 @@ namespace APIControlEmpleados.Controllers
             }
 
         }
+        
+
+        [HttpGet]
+        [Route("ConsultarSolicitudesEmpleado")]
+        public IActionResult ConsultarSolicitudesEmpleado(int id)
+        {
+            try
+            {
+                var resultado = _solicitudVacacionesModel.ConsultarSolicitudesEmpleado(id);
+
+                if (resultado.Count == 0)
+                    return NotFound();
+                else
+                    return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("CambiarEstado")]
+        public IActionResult CambiarEstado(int id_solicitud, string estado)
+        {
+            try
+            {
+                var resultado = _solicitudVacacionesModel.CambiarEstado(id_solicitud, estado);
+
+                if (resultado != 0)
+                {
+                    return Ok(resultado);
+
+                }
+                else
+                {
+                    return BadRequest();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
