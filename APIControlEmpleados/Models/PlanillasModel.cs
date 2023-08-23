@@ -114,5 +114,36 @@ namespace APIControlEmpleados.Models
                 throw new Exception("Ocurrió un error interno en el modelo Planillas: " + ex.Message);
             }
         }
+
+        //Nuevo
+        public List<ConsultarPlanillas>? ConsultarPlanillasEmpleado(int id)
+        {
+            try
+            {
+                var consulta = from p in _contexto.Planilla
+                               join e in _contexto.Empleado on p.ID_EMPLEADO equals e.ID_EMPLEADO
+                               where p.ID_EMPLEADO == id
+                               select new ConsultarPlanillas
+                               {
+                                   ID_PLANILLA = p.ID_PLANILLA,
+                                   FECHA = p.FECHA,
+                                   ID_EMPLEADO = e.ID_EMPLEADO,
+                                   NOMBRE = e.NOMBRE,
+                                   PRIMER_APELLIDO = e.PRIMER_APELLIDO,
+                                   SEGUNDO_APELLIDO = e.SEGUNDO_APELLIDO,
+                                   PAGO_POR_HORA = e.PAGO_POR_HORA,
+                                   HORAS_EXTRAS = p.HORAS_EXTRAS,
+                                   DEDUCCIONES = p.DEDUCCIONES,
+                                   SALARIO_NETO = p.SALARIO_NETO
+                               };
+
+                return consulta.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo Planillas: " + ex.Message);
+            }
+        }
+
     }
 }
