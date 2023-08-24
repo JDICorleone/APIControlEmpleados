@@ -107,5 +107,25 @@ namespace APIControlEmpleados.Controllers
 
 
         }
+
+        //Nuevo:
+        [HttpGet]
+        [Route("ConsultarPlanillasEmpleado")]
+        public IActionResult ConsultarPlanillasEmpleado(int id)
+        {
+            try
+            {
+                var resultado = _planillasModel.ConsultarPlanillasEmpleado(id);
+
+                if (resultado == null)
+                    return NotFound();
+                else
+                    return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
