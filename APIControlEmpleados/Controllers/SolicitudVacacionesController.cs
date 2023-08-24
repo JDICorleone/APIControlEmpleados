@@ -34,6 +34,25 @@ namespace APIControlEmpleados.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("ConsultarSolicitudes2")]
+        public IActionResult ConsultarSolicitudes2()
+        {
+            try
+            {
+                var resultado = _solicitudVacacionesModel.ConsultarSolicitudes2();
+
+                if (resultado.Count == 0)
+                    return NotFound();
+                else
+                    return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("AgregarSolicitud")]
         public IActionResult AgregarSolicitud(Solicitud_Vacaciones entidad)
@@ -82,11 +101,11 @@ namespace APIControlEmpleados.Controllers
 
         [HttpPut]
         [Route("CambiarEstado")]
-        public IActionResult CambiarEstado(int id_solicitud, string estado)
+        public IActionResult CambiarEstado(Solicitud_Vacaciones solicitud)
         {
             try
             {
-                var resultado = _solicitudVacacionesModel.CambiarEstado(id_solicitud, estado);
+                var resultado = _solicitudVacacionesModel.CambiarEstado(solicitud);
 
                 if (resultado != 0)
                 {

@@ -2,7 +2,6 @@
 using APIControlEmpleados.Consults;
 using APIControlEmpleados.Entities;
 using APIControlEmpleados.Interfaces;
-using APIControlEmpleados.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -151,6 +150,27 @@ namespace APIControlEmpleados.Models
             catch (Exception ex)
             {
                 throw new Exception("Ocurrió un error interno en el modelo Empleados: " + ex.Message);
+            }
+        }
+
+        public int ActualizarVacaciones(Empleado entidad)
+        {
+            try
+            {
+                Empleado empleadoExistente = _contexto.Empleado.Find(entidad.ID_EMPLEADO);
+                if (empleadoExistente == null)
+                {
+                    return 0;
+                }
+                empleadoExistente.VACACIONES_DISPONIBLES = entidad.VACACIONES_DISPONIBLES;
+
+                _contexto.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error interno en el modelo de Empleados: " + ex.Message);
             }
         }
 

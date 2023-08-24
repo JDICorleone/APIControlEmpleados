@@ -109,5 +109,30 @@ namespace APIControlEmpleados.Controllers
 
         }
 
+        [HttpPut]
+        [Route("ActualizarVacaciones")]
+        public IActionResult ActualizarVacaciones(Empleado entidad)
+        {
+            try
+            {
+                var resultado = _empleadosModel.ActualizarVacaciones(entidad);
+
+                if (resultado != 0)
+                {
+                    return Ok(resultado);
+
+                }
+                else
+                {
+                    return BadRequest();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
