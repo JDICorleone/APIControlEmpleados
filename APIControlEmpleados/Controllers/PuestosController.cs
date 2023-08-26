@@ -55,5 +55,31 @@ namespace APIControlEmpleados.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut]
+        [Route("EditarPuesto")]
+        public IActionResult EditarPuesto(Puestos entidad)
+        {
+            try
+            {
+                var resultado = _puestosModel.EditarPuesto(entidad);
+
+                if (resultado != 0)
+                {
+                    return Ok(resultado);
+
+                }
+                else
+                {
+                    return BadRequest();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

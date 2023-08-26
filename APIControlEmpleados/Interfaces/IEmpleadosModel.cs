@@ -14,6 +14,7 @@ namespace APIControlEmpleados.Interfaces
 
         public List<Empleado> ConsultarEmpleados2();
 
+        public int ActualizarVacaciones(Empleado entidad);
 
     }
 }

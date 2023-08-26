@@ -20,6 +20,8 @@ builder.Services.AddScoped<IPlanillasModel, PlanillasModel>();
 
 builder.Services.AddScoped<IPuestosModel, PuestosModel>();
 
+builder.Services.AddScoped<ISolicitudVacacionesModel, SolicitudVacacionesModel>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

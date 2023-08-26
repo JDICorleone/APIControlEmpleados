@@ -28,6 +28,8 @@ namespace APIControlEmpleados.Models
 
         public DbSet<Puestos> Puestos { get; set; }
 
+        public DbSet<Solicitud_Vacaciones> Solicitud_Vacaciones { get; set; }
+
 
         //Metodos ------------------------------------------------------------
         protected override void OnModelCreating(ModelBuilder modelBuilder)
